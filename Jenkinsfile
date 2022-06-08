@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
+        stage('javaBuild') {
             steps {
                 sh 'mvn -f hello-app/pom.xml -B -DskipTests clean package'
             }
@@ -12,7 +12,7 @@ pipeline {
                 }
             }
         }
-        stage('Test') {
+        stage('mavenTest') {
             steps {
                 sh 'mvn -f hello-app/pom.xml test'
             }
